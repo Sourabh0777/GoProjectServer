@@ -15,7 +15,7 @@ type Event struct {
 	UserID      int64
 }
 
-func (e Event) Save() error {
+func (e *Event) Save() error {
 	query := `INSERT INTO events(name, description,location , dateTime,user_id ) 
 	VALUES(?,?,?,?,?)`
 	stmt, err := db.DB.Prepare(query)
